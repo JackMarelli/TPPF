@@ -8,8 +8,10 @@ ARGOMENTI DA TOCCARE:
     - ...
 
 ILLUSIONI OTTICHE
+    - titolo: scritte più vicine più piccole e lontane più grandi
     - Scritte su muri inclinati
     - Stanza con persone giganti e piccole
+    - street art sul pavimento, illusione buco
     - vaso/volti di Rubin
     - oggetto che ruota attorno a entrambi gli assi
     - oggetti impossibili
@@ -25,3 +27,6 @@ INSPO
     - https://unconventionalgallery.ruinart.com/#/
     - https://www.magische-spiegelungen.de/
     - ...
+
+THREEJS USEFUL EXAMPLES
+    - https://threejs.org/examples/#webgl2_multiple_rendertargets

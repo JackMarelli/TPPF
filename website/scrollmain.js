@@ -2,7 +2,6 @@ import * as THREE from "three";
 import "./style.css";
 
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { FirstPersonControls } from "three/examples/jsm/controls/FirstPersonControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 
@@ -69,27 +68,19 @@ loader.load(
   }
 );
 
-//CONTROLS
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.autoRotate = false;
-controls.autoRotateSpeed = 10;
-
-//const firstPersonControls = new THREE.FirstPersonControls(camera, renderer.domElement);
-
 camera.position.set(0, 2, 5);
-controls.update();
 
-function updateCamera(ev) {
-  let div1 = document.getElementById("div1");
+function updateCamera(wqe) {
+  console.log(camera.position);
   camera.position.x = 10 - window.scrollY / 500.0;
   camera.position.z = 10 - window.scrollY / 500.0;
 }
 
 function animate() {
   requestAnimationFrame(animate);
-  controls.update();
   renderer.render(scene, camera);
 }
 
 window.addEventListener("scroll", updateCamera);
 animate();
+console.log("finito");
