@@ -69,18 +69,12 @@ loader.load(
 );
 
 camera.position.set(0, 2, 5);
-
-function updateCamera(wqe) {
-  console.log(camera.position);
-  camera.position.x = 10 - window.scrollY / 500.0;
-  camera.position.z = 10 - window.scrollY / 500.0;
-}
+const orbitControls = new OrbitControls(camera, renderer.domElement);
 
 function animate() {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
 }
 
-window.addEventListener("scroll", updateCamera);
 animate();
 console.log("finito");
