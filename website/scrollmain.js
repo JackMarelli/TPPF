@@ -47,7 +47,7 @@ loader.setDRACOLoader(dracoLoader);
 // Load a glTF resource
 loader.load(
   // resource URL
-  "models/museo.glb",
+  "models/museo2.glb",
   // called when the resource is loaded
   function (gltf) {
     scene.add(gltf.scene);
