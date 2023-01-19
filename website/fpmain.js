@@ -6,79 +6,59 @@ import { FirstPersonControls } from "three/examples/jsm/controls/FirstPersonCont
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 
-//SCENE AND CAMERA
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
-);
+// APP VARIABLES
+const _app = {};
+_app.scene = new THREE.Scene();
+_app.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+_app.gridSize = 220;
+_app.gridDivisions = 16;
+_app.gridHelper = new THREE.GridHelper(_app.size, _app.divisions);
+_app.renderer = new THREE.WebGLRenderer();
+_app.loader = new GLTFLoader();
+_app.dracoLoader = new DRACOLoader();
+_app.controls = new FirstPersonControls(_app.camera, _app.renderer.domElement);
 
-//GRID AND RENDERER
-const size = 220;
-const divisions = 16;
+// LIGHT VARIABLES
+const _lights = {};
+_lights.ambientLight0 = new THREE.AmbientLight(0xffffff);
+_lights.pointLight0 = new THREE.PointLight(0xffffff, 1, 1000);
+_lights.pointLight0Helper = new THREE.PointLightHelper(_lights.pointLight0);
 
-const gridHelper = new THREE.GridHelper(size, divisions);
-scene.add(gridHelper);
+// SETUP
+_app.renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(_app.renderer.domElement);
+_lights.pointLight0.position.set(5, 5, 5);
 
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+_app.scene.add(_app.gridHelper);
+_app.scene.add(_lights.pointLight0);
+_app.scene.add(_lights.ambientLight0);
+_app.scene.add(_lights.pointLight0Helper);
 
-//LIGHTS
-const pointLight0 = new THREE.PointLight(0xffffff, 1, 1000);
-const ambientLight0 = new THREE.AmbientLight(0xffffff);
-const pointLight0Helper = new THREE.PointLightHelper(pointLight0);
+_app.camera.position.set(3, 2, 0);
+_app.camera.lookAt(4, 2, 0);
 
-pointLight0.position.set(5, 5, 5);
+_app.controls.movementSpeed = 150;
+_app.controls.lookSpeed = 0.1;
 
-scene.add(pointLight0);
-scene.add(ambientLight0);
-scene.add(pointLight0Helper);
-
-//GLTF LOADER
-const loader = new GLTFLoader();
-
-// Optional: Provide a DRACOLoader instance to decode compressed mesh data
-const dracoLoader = new DRACOLoader();
-dracoLoader.setDecoderPath("/examples/jsm/libs/draco/");
-loader.setDRACOLoader(dracoLoader);
-
-// Load a glTF resource
-loader.load(
-  // resource URL
-  "models/museo2.glb",
-  // called when the resource is loaded
+// LOAD 3D MODEL (DracoLoader is optional, decodes compressed mesh data)
+_app.dracoLoader.setDecoderPath("/examples/jsm/libs/draco/");
+_app.loader.setDRACOLoader(_app.dracoLoader);
+_app.loader.load(
+  "models/museo2.glb", //model path
   function (gltf) {
-    scene.add(gltf.scene);
-
-    gltf.animations; // Array<THREE.AnimationClip>
-    gltf.scene; // THREE.Group
-    gltf.scenes; // Array<THREE.Group>
-    gltf.cameras; // Array<THREE.Camera>
-    gltf.asset; // Object
-  },
-  // called while loading is progressing
-  function (xhr) {
-    console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
-  },
-  // called when loading has errors
-  function (error) {
-    console.log("An error happened");
+    _app.scene.add(gltf.scene);
+    gltf.animations;
+    gltf.scene;
+    gltf.scenes;
+    gltf.cameras;
+    gltf.asset;
   }
 );
 
-camera.position.set(3, 2, 0);
-camera.lookAt(4, 2, 0);
-
-let fpControls = new FirstPersonControls(camera, renderer.domElement);
-fpControls.update()
-
 function animate() {
-  fpControls.update()
+  _app.controls.update()
   requestAnimationFrame(animate);
-  renderer.render(scene, camera);
+  _app.renderer.render(_app.scene, _app.camera);
 }
 
 animate();

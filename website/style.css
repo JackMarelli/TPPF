@@ -3,11 +3,10 @@
   padding: 0;
 }
 
-body {
-  overflow: hidden;
-}
-
 canvas {
   display: block;
-  position: absolute;
+}
+
+body {
+  display: block;
 }
