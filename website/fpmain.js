@@ -17,6 +17,7 @@ _app.renderer = new THREE.WebGLRenderer();
 _app.loader = new GLTFLoader();
 _app.dracoLoader = new DRACOLoader();
 _app.controls = new FirstPersonControls(_app.camera, _app.renderer.domElement);
+_app.clock = new THREE.Clock();
 
 // LIGHT VARIABLES
 const _lights = {};
@@ -37,7 +38,7 @@ _app.scene.add(_lights.pointLight0Helper);
 _app.camera.position.set(3, 2, 0);
 _app.camera.lookAt(4, 2, 0);
 
-_app.controls.movementSpeed = 150;
+_app.controls.movementSpeed = 20;
 _app.controls.lookSpeed = 0.1;
 
 // LOAD 3D MODEL (DracoLoader is optional, decodes compressed mesh data)
@@ -56,7 +57,7 @@ _app.loader.load(
 );
 
 function animate() {
-  _app.controls.update()
+  _app.controls.update(_app.clock.getDelta())
   requestAnimationFrame(animate);
   _app.renderer.render(_app.scene, _app.camera);
 }
