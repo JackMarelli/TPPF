@@ -11,7 +11,3 @@ canvas {
   display: block;
   position: absolute;
 }
-
-#scroller {
-  height: 99999;
-}

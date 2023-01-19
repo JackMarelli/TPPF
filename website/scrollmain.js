@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import GSAP from "gsap";
 import "./style.css";
 
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
@@ -68,8 +69,31 @@ loader.load(
   }
 );
 
-camera.position.set(0, 2, 5);
-const orbitControls = new OrbitControls(camera, renderer.domElement);
+camera.position.set(3, 2, 0);
+camera.lookAt(4, 2, 0);
+
+const tl = GSAP.timeline();
+let currentStep = 0;
+
+window.addEventListener("wheel", () => {
+  console.log(
+    camera.position.x + "\n" + camera.position.y + "\n" + camera.position.z
+  );
+  currentStep += 1;
+
+  switch (currentStep) {
+    case 1:
+      tl.to(camera.position, {
+        x: 0,
+        y: 2,
+        z: 3,
+        duration: 2,
+        onUpdate: function () {
+          camera.lookAt(camera.position.x +1, 2, camera.position.z);
+        }
+      });
+  }
+});
 
 function animate() {
   requestAnimationFrame(animate);
