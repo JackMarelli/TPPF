@@ -1,9 +1,11 @@
 import * as THREE from "three";
-import GSAP from "gsap";
+// import GSAP from "gsap";
 import "./style.css";
 
+// import { FirstPersonControls } from "three/examples/jsm/controls/FirstPersonControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
+import { FlyControls } from "three/addons/controls/FlyControls.js";
 
 // APP VARIABLES
 const _app = {};
@@ -20,69 +22,29 @@ _app.gridHelper = new THREE.GridHelper(_app.size, _app.divisions);
 _app.renderer = new THREE.WebGLRenderer();
 _app.loader = new GLTFLoader();
 _app.dracoLoader = new DRACOLoader();
+_app.controls = new FlyControls(_app.camera, _app.renderer.domElement);
 _app.clock = new THREE.Clock();
 
 // LIGHT VARIABLES
 const _lights = {};
 _lights.ambientLight0 = new THREE.AmbientLight(0xffffff);
+_lights.pointLight0 = new THREE.PointLight(0xffffff, 1, 1000);
+_lights.pointLight0Helper = new THREE.PointLightHelper(_lights.pointLight0);
 
 // SETUP
 _app.renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(_app.renderer.domElement);
+_lights.pointLight0.position.set(5, 5, 5);
 
 _app.scene.add(_app.gridHelper);
+_app.scene.add(_lights.pointLight0);
 _app.scene.add(_lights.ambientLight0);
-
-_app.camera.position.set(3, 2, 0);
-_app.camera.lookAt(4, 2, 0);
-
-// LOAD 3D MODEL (DracoLoader is optional, decodes compressed mesh data)
-_app.dracoLoader.setDecoderPath("/examples/jsm/libs/draco/");
-_app.loader.setDRACOLoader(_app.dracoLoader);
-_app.loader.load(
-	"models/museo2.glb", //model path
-	function (gltf) {
-		_app.scene.add(gltf.scene);
-		gltf.animations;
-		gltf.scene;
-		gltf.scenes;
-		gltf.cameras;
-		gltf.asset;
-	}
-);
-
-// GSAP ANIMATIONS
-_app.camera.position.set(3, 2, 0);
-_app.camera.lookAt(4, 2, 0);
-
-const tl = GSAP.timeline();
-let currentStep = 0;
-
-window.addEventListener("wheel", () => {
-	console.log(
-		_app.camera.position.x + "\n" + _app.camera.position.y + "\n" + _app.camera.position.z
-	);
-	currentStep += 1;
-
-	switch (currentStep) {
-		case 1:
-			tl.to(_app.camera.position, {
-				x: 0,
-				y: 2,
-				z: 3,
-				duration: 2,
-				onUpdate: function () {
-					_app.camera.lookAt(_app.camera.position.x + 1, 2, _app.camera.position.z);
-				}
-			});
-	}
-});
-
+_app.scene.add(_lights.pointLight0Helper);
 
 function animate() {
+	_app.controls.update(_app.clock.getDelta());
 	requestAnimationFrame(animate);
 	_app.renderer.render(_app.scene, _app.camera);
 }
 
 animate();
-

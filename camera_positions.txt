@@ -1,0 +1,10 @@
+TESTING:
+    attrazione 1:
+        position:
+            3.14
+            2.66
+            -1.17
+        rotation:
+            -2.52
+            -1.29
+            -2.54
