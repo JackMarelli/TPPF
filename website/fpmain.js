@@ -52,7 +52,7 @@ document.addEventListener("keyup", (e) => {
 		case ("Space"):
 			_app.camera.position.y += 0.5;
 			break;
-		case ("ControlLeft"):
+		case ("ShiftLeft"):
 			_app.camera.position.y -= 0.5;
 			break;
 		case ("Enter"):

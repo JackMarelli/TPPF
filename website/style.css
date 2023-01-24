@@ -3,12 +3,66 @@
   padding: 0;
 
   overflow: hidden;
+  user-select: none;
 }
 
 canvas {
   display: block;
+  z-index: 0;
 }
 
 body {
   display: block;
+  z-index: 0;
+}
+
+#curtain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 20;
+}
+
+#btnStart {
+  width: 300px;
+  position: absolute;
+  left: calc(50% - 150px);
+  top: 45%;
+  z-index: 25;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.controls {
+  width: 100px;
+  position: absolute;
+  left: calc(50% - 50px);
+  bottom: 50px;
+
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.btn {
+  font-size: 45px;
+  z-index: 10;
+  color: rgb(0, 255, 0);
+  cursor: pointer;
+}
+
+.d-none {
+  display: none;
+  transition: all 1s;
+}
+
+.d-initial {
+  display: initial;
+  transition: all 1s;
 }
