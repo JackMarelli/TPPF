@@ -30,3 +30,6 @@ INSPO
 
 THREEJS USEFUL EXAMPLES
     - https://threejs.org/examples/#webgl2_multiple_rendertargets
+
+GOOGLE DOCUMENT con lista illusioni
+    -https://docs.google.com/document/d/1dZg6wt3mYWTws3_pA7QJDf6hpCCr6pqNvsP8W_OT34E/edit?usp=sharing
