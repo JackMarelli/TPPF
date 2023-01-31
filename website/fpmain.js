@@ -31,6 +31,14 @@ _app.clock = new THREE.Clock();
 const _lights = {};
 _lights.ambientLight0 = new THREE.AmbientLight(0xffffff);
 
+//LISTENERS
+document.querySelector("#btnStart").addEventListener("click", () => {
+	document.querySelector("#curtain").classList.add("d-none");
+	document.querySelector("#btnStart").classList.add("d-none");
+	_app.currentStep = 1;
+	_app.goToStep(_app.currentStep);
+});
+
 // SETUP
 _app.renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(_app.renderer.domElement);
@@ -41,19 +49,19 @@ _app.scene.add(_lights.ambientLight0);
 _app.camera.position.set(3, 2, 0);
 _app.camera.lookAt(4, 2, 0);
 
-_app.controls.movementSpeed = 10;
-_app.controls.lookSpeed = 10;
-_app.controls.rollSpeed = 1;
+_app.controls.movementSpeed = 0.6;
+_app.controls.lookSpeed = 2;
+_app.controls.rollSpeed = 0.2;
 _app.controls.dragToLook = true;
 
 document.addEventListener("keyup", (e) => {
 	console.log("pressed '" + e.code + "'");
 	switch (e.code) {
 		case ("Space"):
-			_app.camera.position.y += 0.5;
+			_app.camera.position.y += 0.2;
 			break;
 		case ("ShiftLeft"):
-			_app.camera.position.y -= 0.5;
+			_app.camera.position.y -= 0.2;
 			break;
 		case ("Enter"):
 			console.log(
