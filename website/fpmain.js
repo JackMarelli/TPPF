@@ -83,7 +83,7 @@ document.addEventListener("keyup", (e) => {
 _app.dracoLoader.setDecoderPath("/examples/jsm/libs/draco/");
 _app.loader.setDRACOLoader(_app.dracoLoader);
 _app.loader.load(
-	"models/museo2.glb", //model path
+	"/assets/models/museo2.glb", //model path
 	function (gltf) {
 		_app.scene.add(gltf.scene);
 		gltf.animations;

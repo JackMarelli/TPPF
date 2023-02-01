@@ -10,14 +10,49 @@
     <title>THREEJS MUSEUM</title>
   </head>
   <body>
-    <div id="curtain"></div>
-    <div class="headers"></div>
-    <div class="descs"></div>
-    <div id="btnStart">Start the Experience</div>
-    <div class="controls">
-      <div id="btnLeft" class="btn">&cuepr;</div>
-      <div id="btnRight" class="btn">&cuesc;</div>
+    <div id="curtain">
+      <div id="curtainContainer">
+        <div class="title title-big">Welcome</div>
+        <div id="btnStart" class="btn">Start the Experience</div>
+      </div>
     </div>
-    <script type="module" src="/fpmain.js"></script>
+    <div class="text">
+      <div class="title title-small" id="titles">Lorem Ipsum</div>
+      <div id="descs">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora
+        expedita sapiente ratione, qui beatae ducimus maiores eum voluptatem
+        fugit consequuntur alias adipisci deleniti eligendi omnis doloremque
+        quia modi repellat voluptas.
+      </div>
+    </div>
+    <div class="controls">
+      <div id="btnLeft">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            d="M16 22L6 12L16 2l1.775 1.775L9.55 12l8.225 8.225Z"
+          />
+        </svg>
+      </div>
+      <div id="btnRight">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            d="M8.025 22L6.25 20.225L14.475 12L6.25 3.775L8.025 2l10 10Z"
+          />
+        </svg>
+      </div>
+    </div>
+    <script type="module" src="/scrollmain.js"></script>
   </body>
 </html>
