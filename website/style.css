@@ -26,13 +26,12 @@ body {
 }
 
 .title {
-  color: var(--text-color);
   font-family: "Bebas Neue", Impact, sans-serif;
 }
 
 .title-big {
   font-size: 144px;
-  line-height: 144px
+  line-height: 144px;
 }
 
 .title-small {
@@ -50,6 +49,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: var(--bg-color);
+  background-image: radial-gradient(#fff, #e3e3e3, #b9b9b9);
   z-index: 20;
 }
 
@@ -75,7 +75,8 @@ body {
   cursor: pointer;
 }
 
-#btnLeft, #btnRight {
+#btnLeft,
+#btnRight {
   background-color: #fff;
 
   width: 45px;
@@ -102,19 +103,31 @@ body {
 
 .text {
   position: absolute;
-  top: 37%;
+  top: 50%;
   left: 60px;
+  transform: translateY(-50%);
 
-  width: 25%;
-  color: var(--text-color);
+  width: 27%;
+  padding: 40px;
+  /* color: var(--text-color); */
+  color: #18181b;
+  background-color: rgba(76, 130, 71, 0.024);
+  border-radius: 30px;
+  backdrop-filter: blur(18px);
 }
 
 .d-none {
   display: none;
-  transition: all 1s;
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  transition: all 1s linear;
 }
 
 .d-initial {
   display: initial;
-  transition: all 1s;
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  transition: all 1s linear;
 }
