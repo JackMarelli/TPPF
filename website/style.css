@@ -111,9 +111,9 @@ body {
   padding: 40px;
   /* color: var(--text-color); */
   color: #18181b;
-  background-color: rgba(76, 130, 71, 0.024);
+  background-color: rgba(196, 196, 196, 0.183);
   border-radius: 30px;
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(20px);
 }
 
 .d-none {

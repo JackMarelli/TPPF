@@ -12,10 +12,10 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 const _app = {};
 _app.scene = new THREE.Scene();
 _app.camera = new THREE.PerspectiveCamera(
-	45,
-	window.innerWidth / window.innerHeight,
-	0.1,
-	1000
+  45,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
 );
 _app.gridSize = 220;
 _app.gridDivisions = 16;
@@ -24,7 +24,10 @@ _app.renderer = new THREE.WebGLRenderer();
 _app.loader = new GLTFLoader();
 _app.dracoLoader = new DRACOLoader();
 _app.controls = new FlyControls(_app.camera, _app.renderer.domElement);
-_app.pointerLock = new PointerLockControls(_app.camera, _app.renderer.domElement);
+_app.pointerLock = new PointerLockControls(
+  _app.camera,
+  _app.renderer.domElement
+);
 _app.clock = new THREE.Clock();
 
 // LIGHT VARIABLES
@@ -33,10 +36,10 @@ _lights.ambientLight0 = new THREE.AmbientLight(0xffffff);
 
 //LISTENERS
 document.querySelector("#btnStart").addEventListener("click", () => {
-	document.querySelector("#curtain").classList.add("d-none");
-	document.querySelector("#btnStart").classList.add("d-none");
-	_app.currentStep = 1;
-	_app.goToStep(_app.currentStep);
+  document.querySelector("#curtain").classList.add("d-none");
+  document.querySelector("#btnStart").classList.add("d-none");
+  _app.currentStep = 1;
+  _app.goToStep(_app.currentStep);
 });
 
 // SETUP
@@ -55,49 +58,54 @@ _app.controls.rollSpeed = 0.2;
 _app.controls.dragToLook = true;
 
 document.addEventListener("keyup", (e) => {
-	console.log("pressed '" + e.code + "'");
-	switch (e.code) {
-		case ("Space"):
-			_app.camera.position.y += 0.2;
-			break;
-		case ("ShiftLeft"):
-			_app.camera.position.y -= 0.2;
-			break;
-		case ("Enter"):
-			console.log(
-				Math.round((_app.camera.position.x + Number.EPSILON) * 100) / 100 + "\n",
-				Math.round((_app.camera.position.y + Number.EPSILON) * 100) / 100 + "\n",
-				Math.round((_app.camera.position.z + Number.EPSILON) * 100) / 100
-			);
-			console.log(
-				Math.round((_app.camera.rotation.x + Number.EPSILON) * 100) / 100 + "\n",
-				Math.round((_app.camera.rotation.y + Number.EPSILON) * 100) / 100 + "\n",
-				Math.round((_app.camera.rotation.z + Number.EPSILON) * 100) / 100
-			); break;
-		default:
-			break;
-	}
+  console.log("pressed '" + e.code + "'");
+  switch (e.code) {
+    case "Space":
+      _app.camera.position.y += 0.2;
+      break;
+    case "ShiftLeft":
+      _app.camera.position.y -= 0.2;
+      break;
+    case "Enter":
+      console.log(
+        Math.round((_app.camera.position.x + Number.EPSILON) * 100) / 100 +
+          "\n",
+        Math.round((_app.camera.position.y + Number.EPSILON) * 100) / 100 +
+          "\n",
+        Math.round((_app.camera.position.z + Number.EPSILON) * 100) / 100
+      );
+      console.log(
+        Math.round((_app.camera.rotation.x + Number.EPSILON) * 100) / 100 +
+          "\n",
+        Math.round((_app.camera.rotation.y + Number.EPSILON) * 100) / 100 +
+          "\n",
+        Math.round((_app.camera.rotation.z + Number.EPSILON) * 100) / 100
+      );
+      break;
+    default:
+      break;
+  }
 });
 
 // LOAD 3D MODEL (DracoLoader is optional, decodes compressed mesh data)
 _app.dracoLoader.setDecoderPath("/examples/jsm/libs/draco/");
 _app.loader.setDRACOLoader(_app.dracoLoader);
 _app.loader.load(
-	"/assets/models/museo2.glb", //model path
-	function (gltf) {
-		_app.scene.add(gltf.scene);
-		gltf.animations;
-		gltf.scene;
-		gltf.scenes;
-		gltf.cameras;
-		gltf.asset;
-	}
+  "/assets/models/museo2.glb", //model path
+  function (gltf) {
+    _app.scene.add(gltf.scene);
+    gltf.animations;
+    gltf.scene;
+    gltf.scenes;
+    gltf.cameras;
+    gltf.asset;
+  }
 );
 
 function animate() {
-	_app.controls.update(_app.clock.getDelta());
-	requestAnimationFrame(animate);
-	_app.renderer.render(_app.scene, _app.camera);
+  _app.controls.update(_app.clock.getDelta());
+  requestAnimationFrame(animate);
+  _app.renderer.render(_app.scene, _app.camera);
 }
 
 animate();

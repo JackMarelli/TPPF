@@ -58,6 +58,27 @@ document.querySelector("#btnLeft").addEventListener("click", () => {
   _app.goToStep(_app.currentStep);
 });
 
+document.addEventListener("keyup", (e) => {
+  switch (e.code) {
+    case "ArrowRight":
+      if (_app.currentStep < _app.maxStep) {
+        _app.currentStep++;
+      } else {
+        _app.currentStep = 1;
+      }
+      _app.goToStep(_app.currentStep);
+      break;
+    case "ArrowLeft":
+      if (_app.currentStep > 1) {
+        _app.currentStep--;
+      } else {
+        _app.currentStep = _app.maxStep;
+      }
+      _app.goToStep(_app.currentStep);
+      break;
+  }
+});
+
 //FUNCTIONS
 _app.animate = () => {
   requestAnimationFrame(_app.animate);
