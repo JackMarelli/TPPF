@@ -94,24 +94,24 @@ _app.goToStep = (step) => {
       _app.resetCamera();
       break;
     case 1: //entrata
-      _app.moveCamera(-0.16, 3.08, 9.31, 2);
-      _app.rotateCamera(-0.06, 0, 0, 2);
+      _app.moveCamera(0, 3.08, 9.31, 2);
+      _app.rotateCamera(0.02, 0, 0, 2);
       _app.setText("Benvenuto", _app.texts.get("Benvenuto"));
       break;
     case 2: //maschera front
       _app.moveCamera(6.28, 1.63, 0, 2);
       _app.rotateCamera(-1.34, -1.51, -1.34, 2);
       _app.setText(
-        "Maschera Cava Anonymous",
-        _app.texts.get("Maschera Cava Anonymous")
+        "Maschera Cava",
+        _app.texts.get("Maschera Cava")
       );
       break;
     case 3: //maschera side
       _app.moveCamera(8.54, 1.42, 2.52, 2);
       _app.rotateCamera(0.04, 0.01, -0.01, 2);
       _app.setText(
-        "Maschera Cava Anonymous",
-        _app.texts.get("Maschera Cava Anonymous")
+        "Maschera Cava",
+        _app.texts.get("Maschera Cava")
       );
       break;
     case 4: //casa front
@@ -218,7 +218,7 @@ _app.setup = () => {
     "I due cerchi centrali sono identici ma appaiono diversi perché circondati da cerchi più piccoli o più grandi. Il cervello interpreta in modo diverso la loro grandezza in rapporto al contesto."
   );
   _app.texts.set(
-    "Maschera Cava Anonymous",
+    "Maschera Cava",
     "Quando le persone guardano la maschera cava hanno l'impressione di vedere la faccia concava, la parte posteriore della maschera, come se fosse una faccia convessa vista di fronte.I modelli di ricordi nella nostra testa hanno delle facce che escono ogni volta che vediamo qualcosa di simile a un volto: ma può portare a i ignorare dei segnali visivi come ombre, curve o altri tipi di informazioni che posso indicare che abbiamo di fronte esattamente il contrario."
   );
   _app.texts.set(
