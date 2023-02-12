@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import GSAP from "gsap";
-import "./style.css";
+import "./css/style.css";
 
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";

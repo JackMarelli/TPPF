@@ -1,6 +1,6 @@
 import * as THREE from "three";
 // import GSAP from "gsap";
-import "./style.css";
+import "./css/style.css";
 
 import { FlyControls } from "three/examples/jsm/controls/FlyControls.js";
 import { PointerLockControls } from "three/examples/jsm/controls/PointerLockControls";
