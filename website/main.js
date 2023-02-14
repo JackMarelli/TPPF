@@ -99,6 +99,8 @@ _app.goToStep = (step) => {
       _app.setText("Benvenuto", _app.texts.get("Benvenuto"));
       break;
     case 2: //maschera front
+      _app.moveCamera(6.28, 1.63, 0, 3);
+      _app.rotateCamera(-1.34, -1.51, -1.34, 3);
       _app.setText(
         "Maschera Cava",
         _app.texts.get("Maschera Cava")
