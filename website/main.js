@@ -99,57 +99,55 @@ _app.goToStep = (step) => {
       _app.setText("Benvenuto", _app.texts.get("Benvenuto"));
       break;
     case 2: //maschera front
-      _app.moveCamera(6.28, 1.63, 0, 2);
-      _app.rotateCamera(-1.34, -1.51, -1.34, 2);
       _app.setText(
         "Maschera Cava",
         _app.texts.get("Maschera Cava")
       );
       break;
     case 3: //maschera side
-      _app.moveCamera(8.54, 1.42, 2.52, 2);
-      _app.rotateCamera(0.04, 0.01, -0.01, 2);
+      _app.moveCamera(8.54, 1.42, 2.52, 3);
+      _app.rotateCamera(0.04, 0.01, -0.01, 3);
       _app.setText(
         "Maschera Cava",
         _app.texts.get("Maschera Cava")
       );
       break;
     case 4: //casa front
-      _app.moveCamera(-0.2, 2.1, -4.81, 2);
-      _app.rotateCamera(-0.32, 0.08, -0, 2);
+      _app.moveCamera(-0.2, 2.1, -4.81, 3);
+      _app.rotateCamera(-0.32, 0.08, -0, 3);
       _app.setText("Casa Destrutturata", _app.texts.get("Casa Destrutturata"));
       break;
     case 5: //casa side
-      _app.moveCamera(1.23, 2.12, -6.69, 2);
-      _app.rotateCamera(-0.54, 0.58, 0.32, 2);
+      _app.moveCamera(1.23, 2.12, -6.69, 3);
+      _app.rotateCamera(-0.54, 0.58, 0.32, 3);
       _app.setText("Casa Destrutturata", _app.texts.get("Casa Destrutturata"));
       break;
     case 6: //palle
-      _app.moveCamera(5.33, 2.64, 6.35, 2);
-      _app.rotateCamera(-3.0, -0.2, -3.14, 2);
+      _app.moveCamera(5.33, 2.64, 6.35, 3);
+      _app.rotateCamera(-3.0, -0.2, -3.14, 3);
       _app.setText("Illusione di Ebbinghaus", _app.texts.get("Illusione di Ebbinghaus"));
       break;
     case 7: //rombo impossibile front
-      _app.moveCamera(-1.6, 2.62, -0.43, 2);
-      _app.rotateCamera(-1.93, 1.42, 1.94, 2);
+      _app.moveCamera(-1.6, 2.62, -0.43, 3);
+      _app.rotateCamera(-1.93, 1.42, 1.94, 3);
       _app.setText("Rombo impossibile", _app.texts.get("Rombo impossibile"));
       break;
     case 8: //rombo impossibile side
-      _app.moveCamera(-6.82, 2.15, 1.84, 2);
-      _app.rotateCamera(-0.33, 0.68, 0.29, 2);
+      _app.moveCamera(-6.82, 2.15, 1.84, 3);
+      _app.rotateCamera(-0.33, 0.68, 0.29, 3);
       _app.setText("Rombo impossibile", _app.texts.get("Rombo impossibile"));
       break;
     case 9: //triangolo decostruito front
-      _app.moveCamera(-5.35, 5.79, 4.39, 2);
-      _app.rotateCamera(-2.51, 0.04, -3.14, 2);
+      _app.moveCamera(-5.35, 5.79, 4.39, 3);
+      _app.rotateCamera(-2.51, 0.04, -3.14, 3);
       _app.setText(
         "Triangolo di Penrose",
         _app.texts.get("Triangolo di Penrose")
       );
       break;
     case 10: //triangolo decostruito side
-      _app.moveCamera(-8.73, 3.25, 7.3, 2);
-      _app.rotateCamera(-2.61, -1.2, -2.63, 2);
+      _app.moveCamera(-8.73, 3.25, 7.3, 3);
+      _app.rotateCamera(-2.61, -1.2, -2.63, 3);
       _app.setText(
         "Triangolo di Penrose",
         _app.texts.get("Triangolo di Penrose")
@@ -166,6 +164,7 @@ _app.moveCamera = (x, y, z, d) => {
     y,
     z,
     duration: d,
+    ease: "power1.out"
   });
 };
 
