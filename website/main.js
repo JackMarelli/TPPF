@@ -219,7 +219,8 @@ _app.setup = () => {
   );
   _app.texts.set(
     "Maschera Cava",
-    "Quando le persone guardano la maschera cava hanno l'impressione di vedere la faccia concava, la parte posteriore della maschera, come se fosse una faccia convessa vista di fronte.I modelli di ricordi nella nostra testa hanno delle facce che escono ogni volta che vediamo qualcosa di simile a un volto: ma può portare a i ignorare dei segnali visivi come ombre, curve o altri tipi di informazioni che posso indicare che abbiamo di fronte esattamente il contrario."
+    "Quando le persone guardano la maschera cava hanno l'impressione di vedere la faccia concava, la parte posteriore della maschera, come se fosse una faccia convessa vista di fronte. Il cervello può portare a ignorare dei segnali visivi come ombre, curve o altri tipi di informazioni che posso indicare che abbiamo di fronte esattamente il contrario."
+    
   );
   _app.texts.set(
     "Casa Destrutturata",
@@ -231,7 +232,7 @@ _app.setup = () => {
   );
   _app.texts.set(
     "Rombo impossibile",
-    "Ispirato del quadrato impossibile di Escher nel Rombo impossibile la raffigurazione degli spigoli come oggetti solidi rende certa la collocazione delle facce anteriore e posteriore ma i prismi che costituiscono gli spigoli laterali si intrecciano in modo impossibile per un oggetto tridimensionale."
+    "Ispirato del cubo di Escher nel rombo impossibile la raffigurazione degli spigoli come oggetti solidi rende certa la collocazione delle facce anteriore e posteriore ma i prismi che costituiscono gli spigoli laterali si intrecciano in modo impossibile per un oggetto tridimensionale."
   );
 };
 
