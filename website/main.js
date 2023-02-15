@@ -79,6 +79,12 @@ document.addEventListener("keyup", (e) => {
   }
 });
 
+window.addEventListener('resize', () => {
+  _app.camera.aspect = window.innerWidth / window.innerHeight;
+  _app.camera.updateProjectionMatrix();
+  _app.renderer.setSize(window.innerWidth, window.innerHeight);
+}, false);
+
 //FUNCTIONS
 _app.animate = () => {
   requestAnimationFrame(_app.animate);
@@ -162,11 +168,11 @@ _app.goToStep = (step) => {
 
 _app.moveCamera = (x, y, z, d) => {
   GSAP.to(_app.camera.position, {
+    duration: d,
+    ease: "power1.out",
     x,
     y,
-    z,
-    duration: d,
-    ease: "power1.out"
+    z
   });
 };
 
@@ -177,11 +183,11 @@ _app.resetCamera = () => {
 
 _app.rotateCamera = (x, y, z, d) => {
   GSAP.to(_app.camera.rotation, {
+    duration: d,
+    ease: "power2.out",
     x,
     y,
     z,
-    duration: d,
-    ease: "power2.out"
   });
 };
 
